@@ -1,0 +1,71 @@
+{
+  "name": "vite-angular-filesort",
+  "version": "1.0.0",
+  "description": "Vite plugin to sort AngularJS files by module dependencies (gulp-angular-filesort replacement)",
+  "type": "module",
+  "packageManager": "pnpm@9.15.3",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "oxlint src/",
+    "lint:fix": "oxlint --fix src/",
+    "format": "oxfmt src/",
+    "format:write": "oxfmt --write src/",
+    "coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm run build && changeset publish",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "vite",
+    "vite-plugin",
+    "angularjs",
+    "angular",
+    "filesort",
+    "dependency-sort",
+    "topological-sort",
+    "gulp-angular-filesort"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "vite": ">=5.0.0"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.6.0",
+    "@changesets/cli": "^2.30.0",
+    "@commitlint/cli": "^20.4.3",
+    "@commitlint/config-conventional": "^20.4.3",
+    "@types/node": "^25.3.5",
+    "@vitest/coverage-v8": "^4.0.18",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.3.2",
+    "oxfmt": "^0.36.0",
+    "oxlint": "latest",
+    "typescript": "latest",
+    "vite": "latest",
+    "vitest": "latest"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "oxlint --fix",
+      "oxfmt --write"
+    ]
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

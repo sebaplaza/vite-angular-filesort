@@ -1,0 +1,10 @@
+node_modules/
+dist/
+coverage/
+
+*.tsbuildinfo
+*.d.ts.map
+
+*.log
+*.local
+.DS_Store
